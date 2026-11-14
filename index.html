@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Club Leadership & Roles</title>
+<style>
+  :root{
+    --bg:#f5f7fb; --card:#ffffff; --ink:#182033; --muted:#667085;
+    --line:#dbe1ea; --accent:#4f46e5; --accent2:#7c3aed;
+    --blue:#2563eb; --green:#059669; --orange:#ea580c;
+    --shadow:0 14px 40px rgba(24,32,51,.08);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+       color:var(--ink);background:linear-gradient(180deg,#eef2ff 0,#f8fafc 360px,var(--bg) 100%);line-height:1.55}
+  .container{width:min(1180px,92%);margin:auto}
+  header{padding:72px 0 46px;text-align:center}
+  .eyebrow{display:inline-flex;padding:7px 13px;border:1px solid #c7d2fe;border-radius:999px;
+           background:#eef2ff;color:#4338ca;font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+  h1{font-size:clamp(2.3rem,5vw,4.4rem);line-height:1.02;margin:18px 0 14px;letter-spacing:-.05em}
+  .hero p{max-width:760px;margin:0 auto;color:var(--muted);font-size:1.08rem}
+  .hero strong{color:var(--ink)}
+  .nav{position:sticky;top:0;z-index:10;background:rgba(248,250,252,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .nav .container{display:flex;gap:8px;overflow:auto;padding:10px 0}
+  .nav a{white-space:nowrap;text-decoration:none;color:#475467;padding:8px 12px;border-radius:10px;font-size:.9rem;font-weight:650}
+  .nav a:hover{background:#e9edff;color:#4338ca}
+  section{padding:56px 0}
+  .section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:24px}
+  h2{font-size:2rem;letter-spacing:-.03em;margin:0 0 5px}
+  .section-head p{margin:0;color:var(--muted)}
+  .org{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:var(--shadow)}
+  .topnode{max-width:330px;margin:auto}
+  .node{padding:18px 20px;border-radius:16px;background:#fff;border:1px solid #cfd6e3;text-align:center;
+        box-shadow:0 7px 22px rgba(24,32,51,.07)}
+  .node .tag{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800}
+  .node b{display:block;font-size:1.05rem;margin-top:3px}
+  .connector{height:34px;width:2px;background:#b8c0cf;margin:auto}
+  .branches{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative}
+  .branches:before{content:"";position:absolute;top:-17px;left:16.6%;right:16.6%;height:2px;background:#b8c0cf}
+  .committee{background:#f9fafc;border:1px solid var(--line);border-radius:18px;padding:18px}
+  .committee h3{margin:0 0 14px;font-size:1.05rem}
+  .committee .mini{display:grid;gap:8px}
+  .mini div{background:#fff;border:1px solid var(--line);border-radius:11px;padding:9px 11px;font-size:.88rem}
+  .mini span{color:var(--muted);font-size:.76rem;display:block}
+  .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+  .principle{padding:20px;border-radius:18px;background:#fff;border:1px solid var(--line)}
+  .principle .icon{font-size:1.5rem}
+  .principle h3{margin:8px 0 4px;font-size:1rem}
+  .principle p{margin:0;color:var(--muted);font-size:.9rem}
+  .role-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .role{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 7px 24px rgba(24,32,51,.05)}
+  .role-head{padding:20px 22px 15px;border-bottom:1px solid var(--line)}
+  .role-head .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:var(--accent)}
+  .role-head h3{margin:5px 0 6px;font-size:1.25rem}
+  .role-head p{margin:0;color:var(--muted);font-size:.92rem}
+  .role-body{padding:17px 22px}
+  .role-body h4{margin:0 0 8px;font-size:.82rem;text-transform:uppercase;letter-spacing:.07em;color:#475467}
+  ul{margin:0;padding-left:20px;color:#344054;font-size:.9rem}
+  li{margin:5px 0}
+  .must{margin-top:16px;padding:13px 14px;border-radius:13px;background:#f1f5ff;border-left:4px solid var(--accent)}
+  .must b{display:block;font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;color:#4338ca;margin-bottom:3px}
+  .must span{font-size:.9rem}
+  .full{grid-column:1/-1}
+  .accent-blue .label{color:var(--blue)} .accent-blue .must{border-left-color:var(--blue);background:#eff6ff}
+  .accent-green .label{color:var(--green)} .accent-green .must{border-left-color:var(--green);background:#ecfdf5}
+  .accent-orange .label{color:var(--orange)} .accent-orange .must{border-left-color:var(--orange);background:#fff7ed}
+  .associate{margin-top:22px;padding:20px;border-radius:18px;background:#101828;color:white;display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .associate p{margin:3px 0 0;color:#cbd5e1;font-size:.9rem}
+  .associate .pill{padding:8px 12px;border:1px solid #344054;border-radius:999px;white-space:nowrap;font-size:.8rem;font-weight:700}
+  .workflow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+  .step{padding:18px 14px;background:#fff;border:1px solid var(--line);border-radius:16px;text-align:center}
+  .step strong{display:block;margin-bottom:4px}.step span{font-size:.82rem;color:var(--muted)}
+  footer{padding:40px 0 60px;text-align:center;color:var(--muted);font-size:.86rem}
+  @media(max-width:850px){
+    .branches{grid-template-columns:1fr}.branches:before{display:none}
+    .principles,.role-grid{grid-template-columns:1fr}
+    .full{grid-column:auto}.workflow{grid-template-columns:1fr 1fr}
+    .section-head{display:block}.section-head p{margin-top:7px}
+    .associate{align-items:flex-start;flex-direction:column}
+    .associate .pill{white-space:normal}
+  }
+  @media(max-width:520px){
+    header{padding-top:48px}
+    .org{padding:16px}
+    .workflow{grid-template-columns:1fr}
+    .associate{padding:17px}
+    .associate strong{font-size:1rem}
+    .associate p{font-size:.86rem}
+    .associate .pill{width:100%;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="container hero">
+    <span class="eyebrow">Club Governance</span>
+    <h1>Leadership, Committees & Roles</h1>
+    <p>
+      A visual guide to <strong>who owns what</strong> in the club, what each post is responsible for,
+      and the capability each leader must be especially good at.
+    </p>
+  </div>
+</header>
+
+<nav class="nav">
+  <div class="container">
+    <a href="#structure">Structure</a>
+    <a href="#leadership">Leadership</a>
+    <a href="#organising">Organising</a>
+    <a href="#tech">Technology</a>
+    <a href="#marketing">Marketing</a>
+    <a href="#associates">Associates</a>
+  </div>
+</nav>
+
+<main class="container">
+
+<section id="structure">
+  <div class="section-head">
+    <div><h2>Organizational Structure</h2><p>The hierarchy shown in the club's current organizational model.</p></div>
+  </div>
+  <div class="org">
+    <div class="topnode">
+      <div class="node"><span class="tag">Club</span><b>Club President</b></div>
+      <div class="connector"></div>
+      <div class="node"><span class="tag">Executive Leadership</span><b>Vice President</b></div>
+    </div>
+    <div class="connector"></div>
+    <div class="branches">
+      <div class="committee">
+        <h3>Organising Committee</h3>
+        <div class="mini">
+          <div><span>Lead</span>Research Lead</div>
+          <div><span>Lead</span>Operations Lead</div>
+          <div><span>Lead</span>Partnerships Lead</div>
+          <div><span>Lead</span>Treasury & Logistics Lead</div>
+        </div>
+      </div>
+      <div class="committee">
+        <h3>Tech Committee</h3>
+        <div class="mini">
+          <div>Product & Systems Lead</div>
+          <div>Frontend Lead</div>
+          <div>Backend Lead</div>
+          <div>Data Lead</div>
+          <div>AI Lead</div>
+        </div>
+      </div>
+      <div class="committee">
+        <h3>Marketing Committee</h3>
+        <div class="mini">
+          <div>Brand & Creativity Lead</div>
+          <div>Content & Media Lead</div>
+          <div>Growth & Outreach Lead</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="principles">
+    <div class="principle"><div class="icon">🎯</div><h3>Clear ownership</h3><p>Every major function has a person responsible for its direction and execution.</p></div>
+    <div class="principle"><div class="icon">🧩</div><h3>Distributed execution</h3><p>Leads coordinate work while Associates provide the distributed execution capacity.</p></div>
+    <div class="principle"><div class="icon">📈</div><h3>Scalable structure</h3><p>The structure allows work to be delegated instead of everything flowing through the President.</p></div>
+  </div>
+</section>
+
+<section id="leadership">
+  <div class="section-head"><div><h2>Club Leadership</h2><p>The posts responsible for overall direction and coordination.</p></div></div>
+  <div class="role-grid">
+    <article class="role full">
+      <div class="role-head"><div class="label">Top Leadership</div><h3>Club President</h3>
+      <p>Provides the overall direction of the club and ensures that its different functions work toward a common mission.</p></div>
+      <div class="role-body"><h4>Responsibilities</h4><ul>
+        <li>Set the club's overall vision, priorities and strategic direction.</li>
+        <li>Coordinate the major committees and resolve cross-functional issues.</li>
+        <li>Make or oversee major organizational decisions.</li>
+        <li>Represent the club before the college and external stakeholders.</li>
+        <li>Build a strong leadership culture and ensure continuity of the organization.</li>
+      </ul><div class="must"><b>Must be really good at</b><span>Systems thinking, judgment, leadership and making high-quality decisions under ambiguity.</span></div></div>
+    </article>
+
+    <article class="role">
+      <div class="role-head"><div class="label">Executive Leadership</div><h3>Vice President</h3>
+      <p>Supports the President and coordinates the functioning of the major committees.</p></div>
+      <div class="role-body"><h4>Responsibilities</h4><ul>
+        <li>Coordinate committee-level execution.</li>
+        <li>Track progress across major functions.</li>
+        <li>Support the President in implementing strategy.</li>
+        <li>Resolve operational dependencies between committees.</li>
+        <li>Step in to maintain continuity when required.</li>
+      </ul><div class="must"><b>Must be really good at</b><span>Coordination, prioritization, communication and turning strategy into execution.</span></div></div>
+    </article>
+  </div>
+</section>
+
+<section id="organising">
+  <div class="section-head"><div><h2>Organising Committee</h2><p>Research, operations, relationships and resources that keep the organization moving.</p></div></div>
+  <div class="role-grid">
+    <article class="role accent-green"><div class="role-head"><div class="label">Organising</div><h3>Research Lead</h3><p>Owns research activities that support the club's problem-solving work and decisions.</p></div>
+      <div class="role-body"><h4>Responsibilities</h4><ul><li>Coordinate research activities and evidence collection.</li><li>Support problem investigation and validation.</li><li>Organize findings, references and research outputs.</li><li>Help teams distinguish assumptions from evidence.</li></ul><div class="must"><b>Must be really good at</b><span>Research methodology, critical thinking and extracting useful evidence.</span></div></div>
+    </article>
+
+    <article class="role accent-green"><div class="role-head"><div class="label">Organising</div><h3>Operations Lead</h3><p>Ensures that the club's internal activities, processes and administration run reliably.</p></div>
+      <div class="role-body"><h4>Responsibilities</h4><ul><li>Coordinate meetings, schedules and internal processes.</li><li>Maintain records and documentation.</li><li>Support recruitment and assessment logistics.</li><li>Coordinate administrative requirements and execution.</li></ul><div class="must"><b>Must be really good at</b><span>Organization, reliability, follow-through and process management.</span></div></div>
+    </article>
+
+    <article class="role accent-green"><div class="role-head"><div class="label">Organising</div><h3>Partnerships Lead</h3><p>Builds and manages relationships with people and organizations outside the club.</p></div>
+      <div class="role-body"><h4>Responsibilities</h4><ul><li>Develop relationships with clubs, communities, alumni and experts.</li><li>Coordinate mentors, speakers and external collaborators.</li><li>Identify external opportunities for projects and members.</li><li>Support sponsorship and institutional partnerships.</li></ul><div class="must"><b>Must be really good at</b><span>Communication, networking, negotiation and relationship building.</span></div></div>
+    </article>
+
+    <article class="role accent-green"><div class="role-head"><div class="label">Organising</div><h3>Treasury & Logistics Lead</h3><p>Manages the club's money, procurement, physical resources and logistical execution.</p></div>
+      <div class="role-body"><h4>Responsibilities</h4><ul><li>Prepare and monitor budgets.</li><li>Track income, expenditure and reimbursements.</li><li>Coordinate procurement and vendors.</li><li>Manage equipment, inventory and resource allocation.</li><li>Coordinate venues, materials and event logistics.</li></ul><div class="must"><b>Must be really good at</b><span>Financial discipline, planning, resource management and operational precision.</span></div></div></article>
+  </div>
+</section>
+
+<section id="tech">
+  <div class="section-head"><div><h2>Tech Committee</h2><p>Builds and maintains the club's digital products, systems and technical capabilities.</p></div></div>
+  <div class="role-grid">
+    <article class="role accent-blue"><div class="role-head"><div class="label">Technology</div><h3>Product & Systems Lead</h3><p>Turns organizational needs into clearly defined digital products and systems.</p></div>
+      <div class="role-body"><h4>Responsibilities</h4><ul><li>Gather requirements and understand user needs.</li><li>Define product specifications and workflows.</li><li>Prioritize features and maintain product roadmaps.</li><li>Coordinate UX and usability testing.</li><li>Bridge users, leadership and engineering.</li></ul><div class="must"><b>Must be really good at</b><span>Product thinking, problem decomposition and translating needs into systems.</span></div></div></article>
+
+    <article class="role accent-blue"><div class="role-head"><div class="label">Technology</div><h3>Frontend Lead</h3><p>Owns the user-facing interfaces of the club's digital systems.</p></div>
+      <div class="role-body"><h4>Responsibilities</h4><ul><li>Build responsive web or application interfaces.</li><li>Establish frontend standards and reusable components.</li><li>Integrate interfaces with APIs.</li><li>Test usability and frontend reliability.</li><li>Review and guide frontend contributions.</li></ul><div class="must"><b>Must be really good at</b><span>Frontend engineering, UI implementation and attention to user experience.</span></div></div></article>
+
+    <article class="role accent-blue"><div class="role-head"><div class="label">Technology</div><h3>Backend Lead</h3><p>Owns server-side systems, APIs, databases and application logic.</p></div>
+      <div class="role-body"><h4>Responsibilities</h4><ul><li>Design backend architecture and APIs.</li><li>Develop application services and business logic.</li><li>Design and manage databases.</li><li>Implement authentication and authorization.</li><li>Maintain reliability, scalability and security.</li></ul><div class="must"><b>Must be really good at</b><span>Backend architecture, databases, APIs and reliable system design.</span></div></div></article>
+
+    <article class="role accent-blue"><div class="role-head"><div class="label">Technology</div><h3>Data Lead</h3><p>Owns the collection, management, analysis and use of organizational data.</p></div>
+      <div class="role-body"><h4>Responsibilities</h4><ul><li>Design data structures and pipelines.</li><li>Maintain data quality and documentation.</li><li>Build dashboards and analytics.</li><li>Analyze member, project and organizational data.</li><li>Support evidence-based decision-making.</li></ul><div class="must"><b>Must be really good at</b><span>Data thinking, analytical reasoning and turning data into useful decisions.</span></div></div></article>
+
+    <article class="role accent-blue"><div class="role-head"><div class="label">Technology</div><h3>AI Lead</h3><p>Owns the development and responsible use of AI systems across the club.</p></div>
+      <div class="role-body"><h4>Responsibilities</h4><ul><li>Identify useful AI opportunities.</li><li>Develop AI/ML and AI-powered features.</li><li>Work with models, LLMs, agents and automation.</li><li>Evaluate model performance and reliability.</li><li>Guide AI experimentation and responsible use.</li></ul><div class="must"><b>Must be really good at</b><span>AI/ML fundamentals, experimentation and judging where AI genuinely adds value.</span></div></div></article>
+  </div>
+</section>
+
+<section id="marketing">
+  <div class="section-head"><div><h2>Marketing Committee</h2><p>Builds the club's identity, communicates its work and grows participation.</p></div></div>
+  <div class="role-grid">
+    <article class="role accent-orange"><div class="role-head"><div class="label">Marketing</div><h3>Brand & Creativity Lead</h3><p>Owns the club's visual identity and creative direction.</p></div>
+      <div class="role-body"><h4>Responsibilities</h4><ul><li>Maintain brand guidelines and visual consistency.</li><li>Create or direct posters, graphics and presentation assets.</li><li>Guide creative campaigns and visual storytelling.</li><li>Coordinate designers and creative contributors.</li></ul><div class="must"><b>Must be really good at</b><span>Visual communication, creativity and maintaining a coherent brand.</span></div></div></article>
+
+    <article class="role accent-orange"><div class="role-head"><div class="label">Marketing</div><h3>Content & Media Lead</h3><p>Owns what the club communicates and how its work is documented.</p></div>
+      <div class="role-body"><h4>Responsibilities</h4><ul><li>Plan content and editorial calendars.</li><li>Create social media content and announcements.</li><li>Document projects, members and events.</li><li>Coordinate articles, interviews, photography and video.</li><li>Maintain the quality and consistency of public communication.</li></ul><div class="must"><b>Must be really good at</b><span>Storytelling, writing, media production and understanding an audience.</span></div></div></article>
+
+    <article class="role accent-orange"><div class="role-head"><div class="label">Marketing</div><h3>Growth & Outreach Lead</h3><p>Owns the growth of the club's community, participation and reach.</p></div>
+      <div class="role-body"><h4>Responsibilities</h4><ul><li>Plan student recruitment and outreach campaigns.</li><li>Mobilize volunteers and project participants.</li><li>Reach departments, student groups and campus communities.</li><li>Promote problem submissions and project opportunities.</li><li>Track recruitment and engagement performance.</li></ul><div class="must"><b>Must be really good at</b><span>Persuasion, outreach strategy, networking and understanding what motivates participation.</span></div></div></article>
+  </div>
+</section>
+
+<section id="associates">
+  <div class="section-head"><div><h2>Associate Layer</h2><p>The distributed execution layer beneath the functional Leads.</p></div></div>
+  <div class="associate">
+    <div><strong>Tech Associates</strong><p>Execute defined technical work such as features, testing, data tasks, documentation, automation and system support under the relevant Tech Lead.</p></div>
+    <span class="pill">Low authority · High execution</span>
+  </div>
+  <div class="associate" style="margin-top:12px">
+    <div><strong>Marketing Associates</strong><p>Execute distributed marketing work such as designs, content, social media, event coverage, outreach and campaign support under the relevant Marketing Lead.</p></div>
+    <span class="pill">Low authority · High execution</span>
+  </div>
+</section>
+
+<section>
+  <div class="section-head"><div><h2>How the structure works</h2><p>Authority should decrease downward while execution capacity increases.</p></div></div>
+  <div class="workflow">
+    <div class="step"><strong>President</strong><span>Direction & strategy</span></div>
+    <div class="step"><strong>Vice President</strong><span>Coordination</span></div>
+    <div class="step"><strong>Committee Leads</strong><span>Function ownership</span></div>
+    <div class="step"><strong>Associates</strong><span>Distributed execution</span></div>
+    <div class="step"><strong>Projects</strong><span>Real-world outcomes</span></div>
+  </div>
+</section>
+
+</main>
+<footer>
+  Club Leadership & Roles · Internal organizational reference
+</footer>
+</body>
+</html>
