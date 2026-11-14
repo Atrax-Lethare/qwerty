@@ -90,6 +90,112 @@
     .associate p{font-size:.86rem}
     .associate .pill{width:100%;text-align:center}
   }
+
+  /* Membership system */
+  .membership-intro{
+    display:grid;grid-template-columns:1.15fr .85fr;gap:18px;margin-bottom:22px
+  }
+  .membership-note{
+    background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;
+    box-shadow:0 7px 24px rgba(24,32,51,.04)
+  }
+  .membership-note strong{display:block;margin-bottom:5px}
+  .membership-note p{margin:0;color:var(--muted);font-size:.92rem}
+  .membership-note.distinction{background:#111827;color:#fff;border-color:#111827}
+  .membership-note.distinction p{color:#d0d5dd}
+  .membership-note.distinction strong{color:#fff}
+  .level-path{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:20px 0 24px
+  }
+  .level-path a{
+    display:flex;align-items:center;gap:9px;min-width:0;padding:12px 13px;
+    border:1px solid var(--line);border-radius:14px;background:#fff;
+    text-decoration:none;color:var(--ink);transition:transform .18s ease,box-shadow .18s ease
+  }
+  .level-path a:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+  .level-path .level-number{
+    display:grid;place-items:center;flex:0 0 34px;height:34px;border-radius:11px;
+    background:#eef2ff;color:#4338ca;font-size:.8rem;font-weight:850
+  }
+  .level-path b{display:block;font-size:.82rem;line-height:1.2}
+  .level-path small{display:block;color:var(--muted);font-size:.7rem;margin-top:3px}
+  .membership-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  .membership-card{
+    background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;
+    box-shadow:0 7px 24px rgba(24,32,51,.05);scroll-margin-top:90px
+  }
+  .membership-card:last-child{grid-column:1/-1}
+  .membership-head{
+    padding:20px 22px 17px;border-bottom:1px solid var(--line);
+    background:linear-gradient(135deg,#fff 0%,#f8faff 100%)
+  }
+  .membership-topline{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:9px}
+  .membership-level{
+    display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;
+    border-radius:13px;background:#eef2ff;color:#4338ca;font-weight:900;font-size:.86rem
+  }
+  .membership-trait{
+    display:inline-flex;padding:6px 10px;border-radius:999px;background:#f2f4f7;
+    color:#475467;font-size:.72rem;font-weight:800;letter-spacing:.02em
+  }
+  .membership-head h3{margin:0 0 7px;font-size:1.25rem}
+  .membership-question{
+    margin:0;color:#475467;font-size:.94rem;font-weight:650
+  }
+  .membership-body{padding:18px 22px 21px}
+  .membership-body h4{
+    margin:0 0 10px;font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;color:#667085
+  }
+  .capability-list{
+    display:flex;flex-wrap:wrap;gap:7px;margin:0;padding:0;list-style:none
+  }
+  .capability-list li{
+    margin:0;padding:7px 10px;background:#f4f6fa;border:1px solid #e6eaf0;
+    border-radius:9px;color:#344054;font-size:.82rem;line-height:1.3
+  }
+  .member-expectations{
+    margin-top:16px;padding:13px 14px;border-radius:13px;background:#f5f3ff;
+    border-left:4px solid #7c3aed
+  }
+  .member-expectations b,.member-return b{
+    display:block;font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;margin-bottom:6px
+  }
+  .expectation-tags{display:flex;flex-wrap:wrap;gap:6px}
+  .expectation-tags span{
+    padding:5px 8px;border-radius:999px;background:#fff;color:#5b21b6;
+    border:1px solid #e9d5ff;font-size:.78rem
+  }
+  .member-return{
+    margin-top:16px;padding:14px;border-radius:13px;background:#ecfdf5;
+    border-left:4px solid #059669
+  }
+  .member-return b{color:#047857}
+  .member-return p{margin:0;color:#14532d;font-size:.88rem}
+  .member-return .roi{display:block;margin-top:8px;font-size:.76rem;font-weight:800;color:#047857}
+  .membership-footnote{
+    margin-top:18px;padding:15px 18px;border:1px dashed #a5b4fc;border-radius:14px;
+    color:#475467;background:#f8faff;font-size:.88rem
+  }
+  .membership-footnote strong{color:#3730a3}
+  .membership-card.l2 .membership-level{background:#eff6ff;color:#1d4ed8}
+  .membership-card.l3 .membership-level{background:#ecfeff;color:#0e7490}
+  .membership-card.l4 .membership-level{background:#fff7ed;color:#c2410c}
+  .membership-card.l5 .membership-level{background:#ecfdf5;color:#047857}
+  .membership-card.l5 .membership-head{background:linear-gradient(135deg,#f0fdf4 0%,#fff 100%)}
+  @media(max-width:850px){
+    .membership-intro{grid-template-columns:1fr}
+    .level-path{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .membership-grid{grid-template-columns:1fr}
+    .membership-card:last-child{grid-column:auto}
+  }
+  @media(max-width:520px){
+    .level-path{grid-template-columns:1fr}
+    .level-path a{padding:10px 12px}
+    .membership-head,.membership-body{padding-left:17px;padding-right:17px}
+    .membership-topline{align-items:flex-start}
+    .membership-trait{max-width:65%;text-align:center}
+  }
+
 </style>
 </head>
 <body>
@@ -113,6 +219,7 @@
     <a href="#tech">Technology</a>
     <a href="#marketing">Marketing</a>
     <a href="#associates">Associates</a>
+    <a href="#membership">Membership</a>
   </div>
 </nav>
 
@@ -167,11 +274,13 @@
   </div>
 </section>
 
+
+
 <section id="leadership">
   <div class="section-head"><div><h2>Club Leadership</h2><p>The posts responsible for overall direction and coordination.</p></div></div>
   <div class="role-grid">
     <article class="role full">
-      <div class="role-head"><div class="label">Top Leadership</div><h3>Club President</h3>
+      <div class="role-head"><div class="label">Abhishek Biradar</div><h3>Club President</h3>
       <p>Provides the overall direction of the club and ensures that its different functions work toward a common mission.</p></div>
       <div class="role-body"><h4>Responsibilities</h4><ul>
         <li>Set the club's overall vision, priorities and strategic direction.</li>
@@ -181,9 +290,9 @@
         <li>Build a strong leadership culture and ensure continuity of the organization.</li>
       </ul><div class="must"><b>Must be really good at</b><span>Systems thinking, judgment, leadership and making high-quality decisions under ambiguity.</span></div></div>
     </article>
-
+    
     <article class="role">
-      <div class="role-head"><div class="label">Executive Leadership</div><h3>Vice President</h3>
+      <div class="role-head"><div class="label">Abeer Agrawal</div><h3>Vice President</h3>
       <p>Supports the President and coordinates the functioning of the major committees.</p></div>
       <div class="role-body"><h4>Responsibilities</h4><ul>
         <li>Coordinate committee-level execution.</li>
@@ -199,19 +308,19 @@
 <section id="organising">
   <div class="section-head"><div><h2>Organising Committee</h2><p>Research, operations, relationships and resources that keep the organization moving.</p></div></div>
   <div class="role-grid">
-    <article class="role accent-green"><div class="role-head"><div class="label">Organising</div><h3>Research Lead</h3><p>Owns research activities that support the club's problem-solving work and decisions.</p></div>
+    <article class="role accent-green"><div class="role-head"><div class="label">TBD</div><h3>Research Lead</h3><p>Owns research activities that support the club's problem-solving work and decisions.</p></div>
       <div class="role-body"><h4>Responsibilities</h4><ul><li>Coordinate research activities and evidence collection.</li><li>Support problem investigation and validation.</li><li>Organize findings, references and research outputs.</li><li>Help teams distinguish assumptions from evidence.</li></ul><div class="must"><b>Must be really good at</b><span>Research methodology, critical thinking and extracting useful evidence.</span></div></div>
     </article>
 
-    <article class="role accent-green"><div class="role-head"><div class="label">Organising</div><h3>Operations Lead</h3><p>Ensures that the club's internal activities, processes and administration run reliably.</p></div>
+    <article class="role accent-green"><div class="role-head"><div class="label">TBD</div><h3>Operations Lead</h3><p>Ensures that the club's internal activities, processes and administration run reliably.</p></div>
       <div class="role-body"><h4>Responsibilities</h4><ul><li>Coordinate meetings, schedules and internal processes.</li><li>Maintain records and documentation.</li><li>Support recruitment and assessment logistics.</li><li>Coordinate administrative requirements and execution.</li></ul><div class="must"><b>Must be really good at</b><span>Organization, reliability, follow-through and process management.</span></div></div>
     </article>
 
-    <article class="role accent-green"><div class="role-head"><div class="label">Organising</div><h3>Partnerships Lead</h3><p>Builds and manages relationships with people and organizations outside the club.</p></div>
+    <article class="role accent-green"><div class="role-head"><div class="label">TBD</div><h3>Partnerships Lead</h3><p>Builds and manages relationships with people and organizations outside the club.</p></div>
       <div class="role-body"><h4>Responsibilities</h4><ul><li>Develop relationships with clubs, communities, alumni and experts.</li><li>Coordinate mentors, speakers and external collaborators.</li><li>Identify external opportunities for projects and members.</li><li>Support sponsorship and institutional partnerships.</li></ul><div class="must"><b>Must be really good at</b><span>Communication, networking, negotiation and relationship building.</span></div></div>
     </article>
 
-    <article class="role accent-green"><div class="role-head"><div class="label">Organising</div><h3>Treasury & Logistics Lead</h3><p>Manages the club's money, procurement, physical resources and logistical execution.</p></div>
+    <article class="role accent-green"><div class="role-head"><div class="label">Archit Agrawal</div><h3>Treasury & Logistics Lead</h3><p>Manages the club's money, procurement, physical resources and logistical execution.</p></div>
       <div class="role-body"><h4>Responsibilities</h4><ul><li>Prepare and monitor budgets.</li><li>Track income, expenditure and reimbursements.</li><li>Coordinate procurement and vendors.</li><li>Manage equipment, inventory and resource allocation.</li><li>Coordinate venues, materials and event logistics.</li></ul><div class="must"><b>Must be really good at</b><span>Financial discipline, planning, resource management and operational precision.</span></div></div></article>
   </div>
 </section>
@@ -219,19 +328,19 @@
 <section id="tech">
   <div class="section-head"><div><h2>Tech Committee</h2><p>Builds and maintains the club's digital products, systems and technical capabilities.</p></div></div>
   <div class="role-grid">
-    <article class="role accent-blue"><div class="role-head"><div class="label">Technology</div><h3>Product & Systems Lead</h3><p>Turns organizational needs into clearly defined digital products and systems.</p></div>
+    <article class="role accent-blue"><div class="role-head"><div class="label">TBD</div><h3>Product & Systems Lead</h3><p>Turns organizational needs into clearly defined digital products and systems.</p></div>
       <div class="role-body"><h4>Responsibilities</h4><ul><li>Gather requirements and understand user needs.</li><li>Define product specifications and workflows.</li><li>Prioritize features and maintain product roadmaps.</li><li>Coordinate UX and usability testing.</li><li>Bridge users, leadership and engineering.</li></ul><div class="must"><b>Must be really good at</b><span>Product thinking, problem decomposition and translating needs into systems.</span></div></div></article>
 
-    <article class="role accent-blue"><div class="role-head"><div class="label">Technology</div><h3>Frontend Lead</h3><p>Owns the user-facing interfaces of the club's digital systems.</p></div>
+    <article class="role accent-blue"><div class="role-head"><div class="label">TBD</div><h3>Frontend Lead</h3><p>Owns the user-facing interfaces of the club's digital systems.</p></div>
       <div class="role-body"><h4>Responsibilities</h4><ul><li>Build responsive web or application interfaces.</li><li>Establish frontend standards and reusable components.</li><li>Integrate interfaces with APIs.</li><li>Test usability and frontend reliability.</li><li>Review and guide frontend contributions.</li></ul><div class="must"><b>Must be really good at</b><span>Frontend engineering, UI implementation and attention to user experience.</span></div></div></article>
 
-    <article class="role accent-blue"><div class="role-head"><div class="label">Technology</div><h3>Backend Lead</h3><p>Owns server-side systems, APIs, databases and application logic.</p></div>
+    <article class="role accent-blue"><div class="role-head"><div class="label">TBD</div><h3>Backend Lead</h3><p>Owns server-side systems, APIs, databases and application logic.</p></div>
       <div class="role-body"><h4>Responsibilities</h4><ul><li>Design backend architecture and APIs.</li><li>Develop application services and business logic.</li><li>Design and manage databases.</li><li>Implement authentication and authorization.</li><li>Maintain reliability, scalability and security.</li></ul><div class="must"><b>Must be really good at</b><span>Backend architecture, databases, APIs and reliable system design.</span></div></div></article>
 
-    <article class="role accent-blue"><div class="role-head"><div class="label">Technology</div><h3>Data Lead</h3><p>Owns the collection, management, analysis and use of organizational data.</p></div>
+    <article class="role accent-blue"><div class="role-head"><div class="label">TBD</div><h3>Data Lead</h3><p>Owns the collection, management, analysis and use of organizational data.</p></div>
       <div class="role-body"><h4>Responsibilities</h4><ul><li>Design data structures and pipelines.</li><li>Maintain data quality and documentation.</li><li>Build dashboards and analytics.</li><li>Analyze member, project and organizational data.</li><li>Support evidence-based decision-making.</li></ul><div class="must"><b>Must be really good at</b><span>Data thinking, analytical reasoning and turning data into useful decisions.</span></div></div></article>
 
-    <article class="role accent-blue"><div class="role-head"><div class="label">Technology</div><h3>AI Lead</h3><p>Owns the development and responsible use of AI systems across the club.</p></div>
+    <article class="role accent-blue"><div class="role-head"><div class="label">TBD</div><h3>AI Lead</h3><p>Owns the development and responsible use of AI systems across the club.</p></div>
       <div class="role-body"><h4>Responsibilities</h4><ul><li>Identify useful AI opportunities.</li><li>Develop AI/ML and AI-powered features.</li><li>Work with models, LLMs, agents and automation.</li><li>Evaluate model performance and reliability.</li><li>Guide AI experimentation and responsible use.</li></ul><div class="must"><b>Must be really good at</b><span>AI/ML fundamentals, experimentation and judging where AI genuinely adds value.</span></div></div></article>
   </div>
 </section>
@@ -239,13 +348,13 @@
 <section id="marketing">
   <div class="section-head"><div><h2>Marketing Committee</h2><p>Builds the club's identity, communicates its work and grows participation.</p></div></div>
   <div class="role-grid">
-    <article class="role accent-orange"><div class="role-head"><div class="label">Marketing</div><h3>Brand & Creativity Lead</h3><p>Owns the club's visual identity and creative direction.</p></div>
+    <article class="role accent-orange"><div class="role-head"><div class="label">TBD</div><h3>Brand & Creativity Lead</h3><p>Owns the club's visual identity and creative direction.</p></div>
       <div class="role-body"><h4>Responsibilities</h4><ul><li>Maintain brand guidelines and visual consistency.</li><li>Create or direct posters, graphics and presentation assets.</li><li>Guide creative campaigns and visual storytelling.</li><li>Coordinate designers and creative contributors.</li></ul><div class="must"><b>Must be really good at</b><span>Visual communication, creativity and maintaining a coherent brand.</span></div></div></article>
 
-    <article class="role accent-orange"><div class="role-head"><div class="label">Marketing</div><h3>Content & Media Lead</h3><p>Owns what the club communicates and how its work is documented.</p></div>
+    <article class="role accent-orange"><div class="role-head"><div class="label">TBD</div><h3>Content & Media Lead</h3><p>Owns what the club communicates and how its work is documented.</p></div>
       <div class="role-body"><h4>Responsibilities</h4><ul><li>Plan content and editorial calendars.</li><li>Create social media content and announcements.</li><li>Document projects, members and events.</li><li>Coordinate articles, interviews, photography and video.</li><li>Maintain the quality and consistency of public communication.</li></ul><div class="must"><b>Must be really good at</b><span>Storytelling, writing, media production and understanding an audience.</span></div></div></article>
 
-    <article class="role accent-orange"><div class="role-head"><div class="label">Marketing</div><h3>Growth & Outreach Lead</h3><p>Owns the growth of the club's community, participation and reach.</p></div>
+    <article class="role accent-orange"><div class="role-head"><div class="label">TBD</div><h3>Growth & Outreach Lead</h3><p>Owns the growth of the club's community, participation and reach.</p></div>
       <div class="role-body"><h4>Responsibilities</h4><ul><li>Plan student recruitment and outreach campaigns.</li><li>Mobilize volunteers and project participants.</li><li>Reach departments, student groups and campus communities.</li><li>Promote problem submissions and project opportunities.</li><li>Track recruitment and engagement performance.</li></ul><div class="must"><b>Must be really good at</b><span>Persuasion, outreach strategy, networking and understanding what motivates participation.</span></div></div></article>
   </div>
 </section>
@@ -253,15 +362,206 @@
 <section id="associates">
   <div class="section-head"><div><h2>Associate Layer</h2><p>The distributed execution layer beneath the functional Leads.</p></div></div>
   <div class="associate">
+    <div><strong>Organizing Associates</strong><p>Support the Organizing Committee with distributed execution across research, operations, partnerships, treasury, logistics, documentation, and other day-to-day organizational activities.</p></div>
+    <span class="pill">Low authority · High execution</span>
+  </div>
+  <div class="associate" style="margin-top:12px">
     <div><strong>Tech Associates</strong><p>Execute defined technical work such as features, testing, data tasks, documentation, automation and system support under the relevant Tech Lead.</p></div>
     <span class="pill">Low authority · High execution</span>
   </div>
   <div class="associate" style="margin-top:12px">
-    <div><strong>Marketing Associates</strong><p>Execute distributed marketing work such as designs, content, social media, event coverage, outreach and campaign support under the relevant Marketing Lead.</p></div>
+    <div><strong>Marketing Associates</strong><p>Execute distributed marketing work such as designs, content, social media, event coverage, outreach and campaign support under the relevant Marketing Lead.</p><br><p style="color: #2563eb;"><b>ADITI KHARE | ADITI PATIL</b></p></div>
     <span class="pill">Low authority · High execution</span>
   </div>
 </section>
 
+  <section id="membership">
+    <div class="section-head">
+      <div>
+        <h2>Membership System</h2>
+        <p>A five-level development pathway based on the responsibility a member can reliably take on.</p>
+      </div>
+    </div>
+  
+    <div class="membership-intro">
+      <div class="membership-note">
+        <strong>From participation to multiplying capability</strong>
+        <p>Members develop from taking initiative and contributing constructively to independently executing work, leading projects, and making other people and initiatives more effective.</p>
+      </div>
+      <div class="membership-note distinction">
+        <strong>Membership is separate from the Core Team</strong>
+        <p>A membership level reflects a student's demonstrated capability and responsibility. A Core Team post is a formal organizational position. A student may hold both at the same time; one does not automatically grant the other.</p>
+      </div>
+    </div>
+  
+    <div class="level-path" aria-label="Membership progression">
+      <a href="#level-1"><span class="level-number">L1</span><span><b>Community Member</b><small>Initiative</small></span></a>
+      <a href="#level-2"><span class="level-number">L2</span><span><b>Contributor</b><small>Reliability</small></span></a>
+      <a href="#level-3"><span class="level-number">L3</span><span><b>Independent Practitioner</b><small>Autonomy</small></span></a>
+      <a href="#level-4"><span class="level-number">L4</span><span><b>Project Steward</b><small>Ownership</small></span></a>
+      <a href="#level-5"><span class="level-number">L5</span><span><b>Community Steward</b><small>Multiplication</small></span></a>
+    </div>
+  
+    <div class="membership-grid">
+      <article class="membership-card l1" id="level-1">
+        <div class="membership-head">
+          <div class="membership-topline">
+            <span class="membership-level">L1</span>
+            <span class="membership-trait">Defining characteristic · Initiative</span>
+          </div>
+          <h3>Community Member</h3>
+          <p class="membership-question">“Can you take initiative and participate constructively?”</p>
+        </div>
+        <div class="membership-body">
+          <h4>Capabilities</h4>
+          <ul class="capability-list">
+            <li>Identify problems</li>
+            <li>Submit problems</li>
+            <li>Initiate a project</li>
+            <li>Join open projects</li>
+            <li>Recruit collaborators</li>
+            <li>Participate in workshops</li>
+            <li>Experiment with ideas</li>
+            <li>Access community learning resources</li>
+          </ul>
+          <div class="member-expectations">
+            <b>Club expectations</b>
+            <div class="expectation-tags">
+              <span>Curiosity</span><span>Willingness to learn</span>
+              <span>Respect for community norms</span>
+              <span>Basic accountability for commitments</span>
+            </div>
+          </div>
+          <div class="member-return">
+            <b>What the club gains</b>
+            <p>A larger problem-discovery network, more ideas and student perspectives, more potential project participants and future leaders, and greater campus reach.</p>
+            <span class="roi">Return at this level: potential and participation</span>
+          </div>
+        </div>
+      </article>
+  
+      <article class="membership-card l2" id="level-2">
+        <div class="membership-head">
+          <div class="membership-topline">
+            <span class="membership-level">L2</span>
+            <span class="membership-trait">Defining characteristic · Reliability</span>
+          </div>
+          <h3>Contributor</h3>
+          <p class="membership-question">“Can other people rely on you?”</p>
+        </div>
+        <div class="membership-body">
+          <h4>Capabilities</h4>
+          <ul class="capability-list">
+            <li>Complete assigned tasks</li>
+            <li>Collaborate effectively</li>
+            <li>Conduct research</li>
+            <li>Collect evidence</li>
+            <li>Take responsibility for deliverables</li>
+            <li>Give constructive feedback</li>
+            <li>Document work</li>
+            <li>Communicate progress</li>
+          </ul>
+          <div class="member-return">
+            <b>What the club gains</b>
+            <p>Reliable help with research, student feedback, solution testing, project documentation, assigned tasks, events, peer support and domain knowledge. L2 members become the club's distributed workforce instead of the Core Team doing everything.</p>
+            <span class="roi">Return at this level: reliable contribution</span>
+          </div>
+        </div>
+      </article>
+  
+      <article class="membership-card l3" id="level-3">
+        <div class="membership-head">
+          <div class="membership-topline">
+            <span class="membership-level">L3</span>
+            <span class="membership-trait">Defining characteristic · Autonomy</span>
+          </div>
+          <h3>Independent Practitioner</h3>
+          <p class="membership-question">“Can you independently take responsibility for a meaningful piece of work?”</p>
+        </div>
+        <div class="membership-body">
+          <h4>Capabilities</h4>
+          <ul class="capability-list">
+            <li>Decompose problems</li>
+            <li>Plan execution</li>
+            <li>Select appropriate methods and tools</li>
+            <li>Conduct independent research</li>
+            <li>Build and test solutions</li>
+            <li>Handle unexpected obstacles</li>
+            <li>Evaluate own results</li>
+            <li>Guide less-experienced collaborators</li>
+          </ul>
+          <div class="member-return">
+            <b>What the club gains</b>
+            <p>Reduced supervision costs and greater execution capacity without a proportional increase in leadership overhead.</p>
+            <span class="roi">Return at this level: autonomous execution</span>
+          </div>
+        </div>
+      </article>
+  
+      <article class="membership-card l4" id="level-4">
+        <div class="membership-head">
+          <div class="membership-topline">
+            <span class="membership-level">L4</span>
+            <span class="membership-trait">Defining characteristic · Ownership</span>
+          </div>
+          <h3>Project Steward</h3>
+          <p class="membership-question">“Can you take responsibility for an entire project and its team?”</p>
+        </div>
+        <div class="membership-body">
+          <h4>Capabilities</h4>
+          <ul class="capability-list">
+            <li>Define project objectives</li>
+            <li>Establish execution plans</li>
+            <li>Coordinate multidisciplinary teams</li>
+            <li>Delegate responsibilities</li>
+            <li>Manage resources and timelines</li>
+            <li>Resolve team conflicts</li>
+            <li>Communicate with stakeholders</li>
+            <li>Ensure testing and outcome measurement</li>
+          </ul>
+          <div class="member-return">
+            <b>What the club gains</b>
+            <p>More projects running simultaneously, reduced Core Team workload, accountable project owners, mentorship for younger members, and fewer projects collapsing from lack of coordination.</p>
+            <span class="roi">Return at this level: delegated project leadership</span>
+          </div>
+        </div>
+      </article>
+  
+      <article class="membership-card l5" id="level-5">
+        <div class="membership-head">
+          <div class="membership-topline">
+            <span class="membership-level">L5</span>
+            <span class="membership-trait">Defining characteristic · Multiplying others' capabilities</span>
+          </div>
+          <h3>Community Steward</h3>
+          <p class="membership-question">“Can you make other people and multiple initiatives more effective?”</p>
+        </div>
+        <div class="membership-body">
+          <h4>Capabilities</h4>
+          <ul class="capability-list">
+            <li>Coordinate multiple projects or initiatives</li>
+            <li>Mentor Project Stewards</li>
+            <li>Develop new contributors and leaders</li>
+            <li>Identify recurring problems across projects</li>
+            <li>Improve collaboration between teams</li>
+            <li>Resolve complex organizational issues</li>
+            <li>Build external relationships</li>
+            <li>Develop community-wide initiatives</li>
+          </ul>
+          <div class="member-return">
+            <b>What the club gains · Multiplication of organizational capacity</b>
+            <p>New leaders are developed, recurring problems are identified, internal processes improve, different teams become better connected, and partnerships are managed more effectively.</p>
+            <span class="roi">Return at this level: multiplied community capacity</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  
+    <div class="membership-footnote">
+      <strong>Important distinction:</strong> these levels describe a member's demonstrated capacity and the scope of responsibility they can take on. They are not committee posts or an alternative Core Team hierarchy. Core Team members can also progress through or hold a level in this membership system.
+    </div>
+  </section>
+  
 <section>
   <div class="section-head"><div><h2>How the structure works</h2><p>Authority should decrease downward while execution capacity increases.</p></div></div>
   <div class="workflow">
